@@ -2,26 +2,29 @@ import React, {Component} from 'react';
 import './css/footer.css'
 
 export default class Footer extends Component {
-componentDidMount() {
-  console.log(this.props.todos.length===this.computeEnd())
-}
+  componentDidMount() {
+    console.log(this.props.todos.length === this.computeEnd())
+  }
+
   computeEnd = () => {
-    return this.props.todos.filter(item=>{
+    return this.props.todos.filter(item => {
       return item.status === true
     }).length
 
   }
   deleteAllEnd = () => {
-  this.props.deleteAllEnd()
+    this.props.deleteAllEnd()
   }
   changeCheck = (e) => {
     this.props.updateAllStatus(e.target.checked)
   }
+
   render() {
     return (
       <div className="todo-footer">
         <label>
-          <input type="checkbox" className="inputCC" onChange={this.changeCheck}  defaultChecked={this.props.todos.length===this.computeEnd()}/>
+          <input type="checkbox" className="inputCC" onChange={this.changeCheck}
+                 checked={this.props.todos.length && this.props.todos.length === this.computeEnd()}/>
         </label>
         <span>
           <span>已完成{this.computeEnd()}</span> / 全部{this.props.todos.length}

@@ -30,7 +30,7 @@ export default class Item extends Component {
         this.mouseMove(false)
       }}>
         <label>
-          <input type='checkbox' ref={input => this.input = input} onChange={this.statusChange} defaultChecked={status}/>
+          <input type='checkbox' ref={input => this.input = input} onChange={this.statusChange} checked={status}/>
           <span>{title}</span>
         </label>
         <button
